@@ -12,11 +12,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        DB::table('users')->insert([
+        $scope = Access\User\Scope::create([
+            'name' => 'Admin',
+            'description' => 'Admin'
+        ]);
+        App\User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('P@ssword'),
-            'role' => 1,
+            'scope_id' => $scope->id
         ]);
     }
 }

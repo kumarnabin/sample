@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => ['web', 'auth','checkRole'],'prefix'=>'admin'], function () {
+Route::group(['middleware' => ['web', 'auth','checkScope'],'prefix'=>'admin'], function () {
     Route::resource('projects', \Client\Project\ProjectController::class);
     Route::resource('feedbacks', \Client\Project\FeedbackController::class);
 

@@ -63,14 +63,13 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
+                            <label for="scope_id" class="col-md-4 col-form-label text-md-right">scope_id</label>
 
                             <div class="col-md-6">
-                                <select name="role" id="role" class="form-control">
-                                    <option value="0" {{($user->role==0)?'selected':''}}>Subscriber</option>
-                                    <option value="1" {{($user->role==1)?'selected':''}}>Admin</option>
-                                    <option value="2" {{($user->role==2)?'selected':''}}>User</option>
-                                    <option value="3" {{($user->role==3)?'selected':''}}>Client</option>
+                                <select name="scope_id" id="scope_id" class="form-control">
+                                    @foreach($scopes as $item)
+                                    <option value="{{$item->id}}" {{(old('scope_id',$user->scope->id)==$item->id)?'selected':''}}>{{$item->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

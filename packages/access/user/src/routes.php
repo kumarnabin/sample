@@ -13,8 +13,9 @@
 
 
 Route::group(
-    ['middleware' => ['web', 'auth','checkRole'], 'prefix' => 'admin', 'namespace' => 'Access\User'], function()
+    ['middleware' => ['web', 'auth','checkScope'], 'prefix' => 'admin', 'namespace' => 'Access\User'], function()
 {
     Route::resource('users', 'UserController');
+    Route::resource('scopes', 'ScopeController');
     
 });

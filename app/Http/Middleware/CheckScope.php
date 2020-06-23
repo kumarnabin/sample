@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class CheckRole
+class CheckScope
 {
     /**
      * Handle an incoming request.
@@ -14,11 +14,13 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$scope="Admin")
     {
-        if(Auth::user()->role==1)
-            return $next($request);
+        if(Auth::user()->scope){
+            if(Auth::user()->scope->name==$scope)
+                return $next($request);
+        }
 
-        dd('Project Dashboard');
+        dd('You Are Not '.$scope);
     }
 }

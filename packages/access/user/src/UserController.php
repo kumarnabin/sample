@@ -31,7 +31,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user::users_create');
+        $scopes = Scope::all();
+        return view('user::users_create',['scopes'=>$scopes]);
     }
 
     /**
@@ -51,11 +52,9 @@ class UserController extends Controller
 
         $user = new User;
         $data=$request->except('_token');
-        $user->name=$data['name'];
-        $user->email=$data['email'];
-        $user->role=$data['role'];
+        $user->fill($data);
         $user->password = Hash::make($data['password']);
-        $user->save($data);
+        $user->save();
         return redirect('admin/users');
     }
 
@@ -78,7 +77,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user::users_edit')->with('user',$user);
+         $scopes = Scope::all();
+        return view('user::users_edit',['user'=>$user,'scopes'=>$scopes]);
     }
 
     /**

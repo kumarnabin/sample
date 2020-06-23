@@ -165,6 +165,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
+                            <li class="scope_create"><a href="{{url('admin/scopes/create')}}"><i class="fa fa-circle-o"></i>Add Scope</a></li>
+                            <li class="scope_list"><a href="{{url('admin/scopes')}}"><i class="fa fa-circle-o"></i> List Scopes</a></li>
                             <li class="users_create"><a href="{{url('admin/users/create')}}"><i class="fa fa-circle-o"></i> Create Users</a></li>
                             <li class="users_list"><a href="{{url('admin/users')}}"><i class="fa fa-circle-o"></i> List Users</a></li>
                         </ul>

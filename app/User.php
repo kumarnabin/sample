@@ -3,6 +3,7 @@
 namespace App;
 
 use Client\Project\Project;
+use Access\User\Scope;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role',
+        'name', 'email', 'password','scope_id',
     ];
 
     /**
@@ -40,5 +41,9 @@ class User extends Authenticatable
     public function project()
     {
         return $this->hasOne(Project::class);
+    }
+    public function scope()
+    {
+        return $this->belongsTo(Scope::class);
     }
 }
