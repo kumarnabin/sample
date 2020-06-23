@@ -21,3 +21,15 @@ Auth::routes(['register'=>false]);
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/test/admin', function(){
+	echo "admin dashboard here";
+})->middleware('checkScope:Admin');
+
+Route::get('/test/student', function(){
+	echo "student dashboard here";
+})->middleware('checkScope:Student');
+
+Route::get('/test/teacher', function(){
+	echo "teacher dashboard here";
+})->middleware('checkScope:Teacher');
