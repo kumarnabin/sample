@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="scope_id" class="col-md-4 col-form-label text-md-right">scope_id</label>
+                            <label for="scope_id" class="col-md-4 col-form-label text-md-right">Scope</label>
 
                             <div class="col-md-6">
                                 <select name="scope_id" id="scope_id" class="form-control">
